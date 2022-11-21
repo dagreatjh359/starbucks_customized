@@ -1,7 +1,7 @@
 import datetime
 import pymysql
 
-cnx = pymysql.connect(user='root', password='YooJH@0319', host='localhost', database='starbucks_customized',autocommit=True)
+cnx = pymysql.connect(user='root', password='YooJH@0319', host='localhost', database='starbucks_customized')#, #autocommit=True)
 cursor = cnx.cursor()
 
 ## 4 querys from hw2
@@ -34,8 +34,7 @@ query = "select * from customized_order"
 cursor.execute(query)
 print("Order_id customer_id shop_id custom_bread    custom_coffee   price")
 for data in cursor:
-    print(data)
-    print("{} {} {} {}            {} {}".format(data[1], data[2], data[3], data[4], data[5], data[6]))
+    print("{} {} {} {}            {} {}".format(data[1], data[2], data[3], data[4], data[5], data[9]))
 
 query_3 = "UPDATE customized_order SET payment_amount = " \
           "CASE " \
@@ -50,8 +49,7 @@ query = "select * from customized_order"
 cursor.execute(query)
 print("Order_id customer_id shop_id custom_bread    custom_coffee   price")
 for data in cursor:
-    print(data)
-    print("{} {} {} {}            {} {}".format(data[1], data[2], data[3], data[4], data[5], data[6]))
+    print("{} {} {} {}            {} {}".format(data[1], data[2], data[3], data[4], data[5], data[9]))
 
 print("\n--------------------------------------------------------------------------------------------------------\n4.")
 # 4. Using Subquery
